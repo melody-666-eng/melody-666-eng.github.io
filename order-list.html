@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理系统 - 订单列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .back-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            background: #1989fa;
+            color: #fff;
+            cursor: pointer;
+        }
+        .filter-bar {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .filter-bar input {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .filter-bar button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #1989fa;
+            color: #fff;
+            cursor: pointer;
+        }
+        .order-table {
+            width: 100%;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-collapse: collapse;
+        }
+        .order-table th, .order-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .order-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+        .status {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .status.paid { background: #f0f9ff; color: #52c41a; }
+        .status.unpaid { background: #fff7e6; color: #faad14; }
+        .status.canceled { background: #fff2f0; color: #ff4d4f; }
+        .detail-link {
+            color: #1989fa;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">订单列表</div>
+        <button class="back-btn" onclick="window.location.href='index.html'">返回主页</button>
+    </div>
+
+    <div class="filter-bar">
+        <input type="text" placeholder="输入订单号搜索">
+        <button>搜索</button>
+        <select style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-left: 10px;">
+            <option>全部状态</option>
+            <option>已支付</option>
+            <option>待支付</option>
+            <option>已取消</option>
+        </select>
+    </div>
+
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>订单号</th>
+                <th>下单时间</th>
+                <th>订单金额</th>
+                <th>支付状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OD20260308001</td>
+                <td>2026-03-08 09:25</td>
+                <td>¥199.00</td>
+                <td><span class="status paid">已支付</span></td>
+                <td class="detail-link" onclick="window.location.href='order-detail.html'">查看详情</td>
+            </tr>
+            <tr>
+                <td>OD20260308002</td>
+                <td>2026-03-08 10:12</td>
+                <td>¥299.00</td>
+                <td><span class="status unpaid">待支付</span></td>
+                <td class="detail-link" onclick="window.location.href='order-detail.html'">查看详情</td>
+            </tr>
+            <tr>
+                <td>OD20260308003</td>
+                <td>2026-03-08 11:05</td>
+                <td>¥99.00</td>
+                <td><span class="status canceled">已取消</span></td>
+                <td class="detail-link" onclick="window.location.href='order-detail.html'">查看详情</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
